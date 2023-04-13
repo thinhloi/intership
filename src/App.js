@@ -1,49 +1,53 @@
-import './App.css'
+import './App.scss'
 import Button from './components/Buttons'
 import * as React from 'react';
 import { MdAddShoppingCart } from "react-icons/md";
-import Btn from './components/Btn'
+// import Btn from './components/Btn'
 function App() {
   return (
-    <div>
-    <Button>Default</Button>
-    <br/>
-    <br/>
-    <Button variant ='outline' >Default</Button>
-    <br/>
-    <br/>
-    <Button variant ='text' >Default</Button>
-    <br/>
-    <br/>
-    <Button disabled >Disable</Button>
-    <br/>
-    <br/>
-    <Button 
-      variant ='text' disabled> 
-      Disable
-    </Button>
-    <br/>
-    <br/>
-    <Button variant = 'iconButton' startIcon ={<MdAddShoppingCart />}>
-      &emsp;Default      
-    </Button>
-    <br/>
-    <br/>
-    <Button variant = 'iconButton' endIcon ={<MdAddShoppingCart />}> Default&emsp; </Button>
-    <br/>
-    <br/>
-    <Btn size = "sm">Default</Btn>
-    <Btn size = "md">Default</Btn>
-    <Btn size = "lg">Default</Btn>
-  <br/>
-  <br/>
-  <br/>
-    <Btn color ="default">Default</Btn>
-    <Btn color ="primary">Default</Btn>
-    <Btn color ="secondary">Default</Btn>
-    <Btn color ="danger">Default</Btn>
+    <div className='contained'>
+      <Button
+        className="btn-default"
+        text='Default'
+      />
+      <Button
+        className='btn-outline'
+        text='Outline' />
+      <Button
+        className='btn-text'
+        text='Text' />
+      <Button
+        disableShadow
+        text='Default' />
+      <Button disabled
+        text='Disable' />
+      <Button
+        text='Disable'
+        className='btn-text' disabled />
+      <Button className='btn-iconButton'
+        text=' &emsp;Default'
+        startIcon={<MdAddShoppingCart />}>
+      </Button>
+
+      <Button className='btn-iconButton'
+        text=' Default&emsp;'
+        endIcon={<MdAddShoppingCart />}>
+      </Button>
+      <Button className='btn-iconButton'
+        startIcon={<MdAddShoppingCart />}
+        text=' &emsp;Default&emsp;'
+        endIcon={<MdAddShoppingCart />}>
+      </Button>
+        <Button className='btn-sizeButton' size='sm' text='Default' />
+        <Button className='btn-sizeButton' size='md' text='Default' />
+        <Button className='btn-sizeButton' size='lg' text='Default' />
+      <Button color='default' text='Default'/>
+      <Button color='primary' text='Primary'/>
+      <Button color='secondary' text='Secondary'/>
+      <Button color='danger' text='Danger'/>
 
     </div>
+
   );
 }
 
