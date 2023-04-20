@@ -1,84 +1,55 @@
 import React from 'react'
+import {StyledButton as Button} from './Buttons'
+import { MdDeleteOutline } from "react-icons/md";
 
-const Input = (props) => {
-    const {
-        type ,
-        error,
-        disabled,
-        disableShadow,
-        helperText ,
-        startIcon,
-        endIcon,
-        size ,
-        fullWidth,
-        multiline_row ,
-        onChange,
-        label,
-        placeholder,
-        value,
-        ...inputProps
-    } = props
-    const inputError = error ? 'inputField input-error' : 'inputField';
-    const inputSize = size ? `input-${size}` : '';
-    const isFullWidth = fullWidth ? `input-fullWidth` : '';
-    const isMultiline_row = multiline_row ? `input multiline-row` : '';
+export const StyledCheckbox = ({ id, label, checked, onChange, ...prop }) => {
+    return (
+        <>
+            <input
+                type='checkbox'
+                checked={checked}
+                onChange={onChange}
+                id={id}
+                {...prop} />
+            <label
+                htmlFor={id}
+                data-content={label}
+            >
+                {label}
+            </label>
+        </>
+    );
+};
 
-
-    let divClassName = `${inputError} ${isFullWidth}`;
-
-    if (isMultiline_row)
-    {
-        return(
-        <div className = {divClassName}>
-            <label>{label}</label>
-            <div className='input-area'>
-                <textarea
-                    size={size}
-                    disabled={disabled}
-                    helperText={helperText}
-                    className={inputSize}
-                    placeholder ={placeholder}
-                    {...inputProps}
-                >
-                </textarea>
-            </div>
-            <p className='helper-text' >{helperText}</p>
+export const Todo = ({ id, label, checked, onClick, onChange, ...prop }) => {
+    return (
+        <div className='checkbox-group'>
+            <StyledCheckbox
+                className='checkbox-combo'
+                type='checkbox'
+                label={label}
+                checked={checked}
+                onChange={onChange}
+                id={id}
+                {...prop}
+            />
+            <Button
+                className='btn-icon-danger'
+                onClick={onClick}
+                text={<MdDeleteOutline />}
+            />
         </div>
-        )
-    }
-    else {
-        return (
-        <div className ={divClassName}>
-            
-            <div className='input-area'>
-            <p className = 'helper-text' >{helperText}</p>
-            
-            {startIcon && (
-            <startIcon className ='start-icon'>{startIcon}</startIcon>
-            )}
-              
-            <input 
+    );
+};
+
+export const StyledInputText = ({ action,index, onChange, ...props})=> {
+    return (
+        <input
                 type='text'
-                className={`${inputSize}` }
-                helperText={helperText}
-                placeholder = {placeholder}
-                disabled={disabled}
-                size={size}
-                value= {value}
-                {...inputProps}
-                />
-            {endIcon && (
-                        <endIcon className='end-icon'>{endIcon}</endIcon>
-                    )}
-                <label>{label}</label>
-            </div>
-            
-        </div>
-        )
-    }
-}
-
-
-
-
-export default Input
+                // onChange={() => action[index]}
+                onChange = {onChange}
+                {...props}
+        >   
+        </input>
+        );
+};

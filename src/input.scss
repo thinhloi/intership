@@ -1,163 +1,163 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
 
-$input-size: (
-    sm: 10px 12px,
-    md: 18px 12px,
-);
+// $input-size: (
+//     sm: 10px 12px,
+//     md: 18px 12px,
+// );
 
-.contained {
-    position: relative;
-    display: grid;
-    justify-content: left;
-    grid-template-columns: auto auto auto;
-    gap: 3rem;
-    padding: 5% 5%;
-}
+// .contained {
+//     position: relative;
+//     display: grid;
+//     justify-content: left;
+//     grid-template-columns: auto auto auto;
+//     gap: 3rem;
+//     padding: 5% 5%;
+// }
 
-input,
-textarea {
-    border-radius: 8px;
-    padding: map-get($input-size, md);
-    color: #333333;
-    border: 1px solid #828282;
+// input,
+// textarea {
+//     border-radius: 8px;
+//     padding: map-get($input-size, md);
+//     color: #333333;
+//     border: 1px solid #828282;
 
-    &:hover {
-        border: 1px solid #333333;
-    }
+//     &:hover {
+//         border: 1px solid #333333;
+//     }
 
-    &:focus {
-        border: 1px solid #2962FF;
-        outline: none !important;
+//     &:focus {
+//         border: 1px solid #2962FF;
+//         outline: none !important;
 
-        ~label {
-            color: #2962FF;
-        }
-    }
+//         ~label {
+//             color: #2962FF;
+//         }
+//     }
 
-    &:disabled {
-        background: #F2F2F2;
-        cursor: not-allowed;
-        border: 1px solid #E0E0E0 !important;
-        border-radius: 8px;
-        outline: none !important;
-    }
-}
+//     &:disabled {
+//         background: #F2F2F2;
+//         cursor: not-allowed;
+//         border: 1px solid #E0E0E0 !important;
+//         border-radius: 8px;
+//         outline: none !important;
+//     }
+// }
 
-.input-error {
+// .input-error {
 
-    input,
-    textarea {
-        border: 1px solid #D32F2F;
-        border-radius: 8px;
-        outline: none !important;
-    }
+//     input,
+//     textarea {
+//         border: 1px solid #D32F2F;
+//         border-radius: 8px;
+//         outline: none !important;
+//     }
 
-    >.input-area>label {
-        color: #D32F2F ;
-    }
+//     >.input-area>label {
+//         color: #D32F2F ;
+//     }
 
-    >.input-area>.helper-text {
-        color: #D32F2F ;
-    }
+//     >.input-area>.helper-text {
+//         color: #D32F2F ;
+//     }
 
-    &:hover {
-        input {
-            border: 1px solid #333333;
-            border-radius: 8px;
-            outline: none !important;
-        }
+//     &:hover {
+//         input {
+//             border: 1px solid #333333;
+//             border-radius: 8px;
+//             outline: none !important;
+//         }
 
-        >.input-area>label {
-            color: #333333 ;
-        }
+//         >.input-area>label {
+//             color: #333333 ;
+//         }
 
-        >.input-area>.helper-text {
-            color: #333333 ;
-        }
-    }
+//         >.input-area>.helper-text {
+//             color: #333333 ;
+//         }
+//     }
 
-    &:focus {
-        input {
-            border: 1px solid #D32F2F !important;
-            border-radius: 8px;
-            outline: none !important;
-        }
-        >.input-area>label {
-            color: #D32F2F !important ;
-        }
+//     &:focus {
+//         input {
+//             border: 1px solid #D32F2F !important;
+//             border-radius: 8px;
+//             outline: none !important;
+//         }
+//         >.input-area>label {
+//             color: #D32F2F !important ;
+//         }
 
-        >.input-area>.helper-text {
-            color: #D32F2F !important;
-        }
-    }
-}
+//         >.input-area>.helper-text {
+//             color: #D32F2F !important;
+//         }
+//     }
+// }
 
-@mixin input-icon() {
-    > :only-child {
-        height: 6rem;
-        width: 1rem;
-        color: #828282;
-    }
-}
+// @mixin input-icon() {
+//     > :only-child {
+//         height: 6rem;
+//         width: 1rem;
+//         color: #828282;
+//     }
+// }
 
-.input-fullWidth {
-    width: 100%;
+// .input-fullWidth {
+//     width: 100%;
 
-    input {
-        width: 100%;
-    }
-}
+//     input {
+//         width: 100%;
+//     }
+// }
 
-.inputField {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
+// .inputField {
+//     display: inline-flex;
+//     flex-direction: column;
+//     align-items: flex-start;
 
-    >label {
-        font-size: 12px;
-        line-height: 17px;
-        color: #333333;
-        padding-bottom: 4px;
-    }
+//     >label {
+//         font-size: 12px;
+//         line-height: 17px;
+//         color: #333333;
+//         padding-bottom: 4px;
+//     }
 
-    .helper-text {
-        padding-top: 4px;
-        font-size: 10px;
-        line-height: 14px;
-        color: #828282;
-    }
+//     .helper-text {
+//         padding-top: 4px;
+//         font-size: 10px;
+//         line-height: 14px;
+//         color: #828282;
+//     }
 
-    .input-area {
-        width: 100%;
-        display: inline-flex;
-        justify-content: flex-start;
-        position: relative;
-        flex-direction: column-reverse;
+//     .input-area {
+//         width: 100%;
+//         display: inline-flex;
+//         justify-content: flex-start;
+//         position: relative;
+//         flex-direction: column-reverse;
 
-        .start-icon {
-            z-index: 0;
-            position: absolute;
-            padding-left: 12px;
-            padding-right: 12px;
-            @include input-icon();
+//         .start-icon {
+//             z-index: 0;
+//             position: absolute;
+//             padding-left: 12px;
+//             padding-right: 12px;
+//             @include input-icon();
 
-            +input {
-                padding-left: 40px !important;
-            }
-        }
+//             +input {
+//                 padding-left: 40px !important;
+//             }
+//         }
 
-        .end-icon {
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            @include input-icon();
-        }
-    }
-}
-@each $size, $value in $input-size {
-    .input-#{$size} {
-        padding: $value !important;
-    }
-}
+//         .end-icon {
+//             position: absolute;
+//             top: 50%;
+//             right: 15px;
+//             transform: translateY(-50%);
+//             @include input-icon();
+//         }
+//     }
+// }
+// @each $size, $value in $input-size {
+//     .input-#{$size} {
+//         padding: $value !important;
+//     }
+// }
