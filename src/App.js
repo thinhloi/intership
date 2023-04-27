@@ -1,167 +1,87 @@
 import './App.scss'
-import './input.scss'
-// import './components/TodoApp'
-import { StyledInputText, Todo } from './components/Input'
-import { StyledButton as Button } from './components/Buttons'
-import { useState } from 'react';
-import { Tabs } from './components/TodoApp';
-import { MdDeleteOutline } from "react-icons/md";
-import { v4 } from 'uuid';
+import { Button } from './components/Buttons'
+import { Quote } from './components/Quote'
+import { useState, useEffect } from 'react';
+import { MdCached } from "react-icons/md";
+import { MdArrowRightAlt } from "react-icons/md";
 
 function App() {
-  const storageTodo = JSON.parse(localStorage.getItem('todos'))
+  const [quotes, setQuotes] = useState([])
+  const [list, setList] = useState(true)
+  const [author, setAuthor] = useState(null)
 
-  const [textInput, setTextInput] = useState('');
-  const [todos, setTodos] = useState(storageTodo || [])
+  useEffect(() => {
+    if (quotes.length === 0 && !author)
+      fetch('https://quote-garden.onrender.com/api/v3/quotes/random')
+      .then((res) => res.json())
+      .then((json) => {
+        setQuotes(json.data)
+      })
+  },[quotes,author])
 
+  useEffect(() => {
+    if (author)
+      fetch('https://quote-garden.onrender.com/api/v3/quotes/?author=' + author)
+      .then((res) => res.json())
+      .then((json) => {
+        setQuotes(json.data)
+      })
+  },[author])
 
-  const onTextInputChange = (e) => {
-    setTextInput(e.target.value);
-  }
-
-  const handleSubmit = () => {
-    //Add textInput vào todos
-    setTodos(prev => {
-      const newTodo = [...prev, { id: v4(), name: textInput, isChecked: false }]
-      localStorage.setItem('todos', JSON.stringify(newTodo))
-      return newTodo
-    })
-    setTextInput('');
-
-  }
-
-  const handleChangeTodo = (index) => {
-    const newTodo = [...todos];
-    newTodo[index].isChecked = !newTodo[index].isChecked;
-
-    newTodo.sort((a, b) => (a.isChecked > b.isChecked ? 1 : -1));
-    storageTodo[index] = {
-      id: storageTodo[index].id,
-      name: storageTodo[index].name,
-      isChecked: !storageTodo[index].isChecked,
-    };
-    localStorage.setItem('tasks', JSON.stringify(storageTodo));
-    setTodos(newTodo);
-  }
-
-  const handleRemoveTodo = (index) => {
-    const newTodo = [...todos];
-    newTodo.splice(index, 1);
-
-    localStorage.setItem('todos', JSON.stringify(newTodo));
-    setTodos(newTodo);
-  }
-
-  const oldTodo = [...todos];
-  const filtered = oldTodo.filter((obj) => {
-      return obj.isChecked === false;
-  });
-
-  const found = oldTodo.find((obj) => {
-      return obj.isChecked === true;
-  });
-
-  const handleDeleteTodo = () => {
-      const newTodo =[...filtered];
-      localStorage.setItem('todos', JSON.stringify(newTodo))
-      setTodos(newTodo)
+  const handleRandom= () => {
+    setQuotes([])
+    setAuthor(null)
+    setList(true)
   }
   return (
-    <div className='container'>
-      <h1 style={{ paddingBottom: '60px' }}>#todo</h1>
-      <Tabs>
-        <div label='All'>
-          <div className='tab-content-header'>
-            <StyledInputText
-              value={textInput}
-              type="text"
-              placeholder='add details'
-              onChange={onTextInputChange}
-            />
-            <Button
-              text='Add'
-              className='btn-primary btn-lg'
-              onClick={handleSubmit}
-            />
+    <>
+      <div className='header'>
+        <Button text='random'
+          endIcon={<MdCached />}
+          onClick={handleRandom}
+        />
+      </div>
+      <div className='quote-card'>
+        {author && (
+          <div className='author-header'>
+            <p>{author}</p>
           </div>
-          <div className='tab-content-body'>
-            {Object.keys(todos).map((key, index) => (
-              <Todo
-                key={todos[key].id}
-                id={todos[key].id}
-                label={todos[key].name}
-                checked={todos[key].isChecked}
-                onChange={() => handleChangeTodo(index)}
-                onClick={() => handleRemoveTodo(index)}
+        )}
+        <div className='quote-card-body'>
+          {quotes.map((item, index) => (
+            <>
+              <Quote key={index}
+                text={item.quoteText}
               />
-            ))}
-          </div>
+              {list && (
+                <button
+                  type='button'
+                  className='btn-quote'
+                  onClick={() => {
+                    setQuotes([]);
+                    setAuthor(item.quoteAuthor);
+                    setList(false);
+                  }} >
+                  <div className='btn-group'>
+                    <div className='desc-group'>
+                      <span className='quote-author'>
+                        {item.quoteAuthor}
+                      </span>
+                      <span className='quote-genre'>
+                        {item.quoteGenre}
+                      </span>
+                    </div>
+                    <div className='btn-icon'>
+                      {<MdArrowRightAlt size={40} />}
+                    </div>
+                  </div>
+                </button>
+              )}
+            </>
+          ))}
         </div>
-        <div label='Active'>
-          <div className='tab-content-header'>
-            <StyledInputText
-              value={textInput}
-              type='text'
-              placeholder='add todo'
-              onChange={onTextInputChange}
-            />
-            <Button
-              text='Add'
-              className='btn-primary btn-lg'
-              onClick={handleSubmit}
-            />
-          </div>
-          <div className='tab-content-body'>
-            {Object.keys(todos).map((key, index) => {
-              if (!todos[key].isChecked)
-                {return (
-                  <Todo
-                    key={todos[key].id}
-                    id={todos[key].id}
-                    label={todos[key].name}
-                    checked={todos[key].isChecked}
-                    onChange={() => handleChangeTodo(index)}
-                    onClick={() => handleRemoveTodo(index)}
-                  />
-                )} return null
-            }
-            )}
-          </div>
-        </div>
-        <div label='Completed'>
-          {found ? (
-          <>
-          <div className='tab-content-body'>
-            {Object.keys(todos).map((key, index) => {
-              if (todos[key].isChecked){
-                return (
-                  <Todo
-                    key={todos[key].id}
-                    id={todos[key].id}
-                    label={todos[key].name}
-                    checked={todos[key].isChecked}
-                    onChange={() => handleChangeTodo(index)}
-                    onClick={() => handleRemoveTodo(index)}
-                  />
-                )} return null
-            })}
-          </div>
-          <div className='tab-content-footer'>
-            <Button
-              className='btn-sm btn-danger'
-              icon={<MdDeleteOutline />}
-              text='Delete All'
-              onClick={() => handleDeleteTodo()}
-            />
-          </div>
-          </> ): (
-              <>
-              Nothing completed yet!!!
-              </>
-          )}
-        </div>
-      </Tabs>
-    </div>
+      </div >
+    </>
   )
 }
 

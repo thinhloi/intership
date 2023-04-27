@@ -1,14 +1,15 @@
 
 
-export const StyledButton = ({ text, onClick, icon, ...props }) => {
+export const Button = ({ text, onClick, endIcon, ...props }) => {
   return (
     <button
+      className='btn-text'
       type='button'
       onClick={onClick}
       {...props}
     >
-      <span className='start-icon'>{icon}</span>
       {text}
+      <span className='endIcon'>{endIcon}</span>
     </button>
   )
 }
