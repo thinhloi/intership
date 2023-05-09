@@ -12,8 +12,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding:5%;
-  
+  padding: 5%;
+
 }
 
 input[type='text'] {
@@ -113,7 +113,7 @@ input[type='text'] {
     align-items: flex;
     vertical-align: middle;
     justify-content: center;
-    
+
     &:hover,
     &:focus {
       color: #3D5AFE;
@@ -250,79 +250,94 @@ input[type='text'] {
   align-items: center;
   justify-content: center;
   vertical-align: middle;
+
   > :only-child {
     width: 1.5rem;
     height: 1rem;
   }
 }
 
-.quote-card{
-  width:50%;
+.quote-card {
+  width: 50%;
   margin: 0px 20%;
-  padding-top:48px;
-  >.author-header{
-    font-size:30px;
-    font-weight:700;
+  padding-top: 48px;
+
+  >.author-header {
+    font-size: 30px;
+    font-weight: 700;
     color: black;
-    padding-bottom:10%;
+    padding-bottom: 10%;
   }
-  &-body{
-    >.quote-list{
-      display:inline-flex;
+
+  &-body {
+    >.quote-list {
+      display: inline-flex;
       flex-direction: row;
       width: 100%;
-      >.quote-content{
-          font-size:30px;
-          font-weight: 500;
-          margin-bottom:100px;
-          padding: 0px 30px;
-          height:auto;
-          box-shadow: -5px 0 0 orange;
-          &::before{
-            content: open-quote;
-          }
-          &::after{
-            content: close-quote;
-          }
+
+      >.quote-content {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 100px;
+        padding: 0px 30px;
+        height: auto;
+        box-shadow: -5px 0 0 orange;
+
+        &::before {
+          content: open-quote;
+        }
+
+        &::after {
+          content: close-quote;
+        }
       }
     }
+
     >.btn-quote {
       width: 100%;
       border: none;
       background-color: transparent;
-      >.btn-group{
+
+      >.btn-group {
         width: 100%;
         display: inline-flex;
         flex-direction: row;
         padding: 30px 20px;
-        >.desc-group{
+
+        >.desc-group {
           width: 100%;
           display: inline-flex;
           align-items: flex-start;
           flex-direction: column;
           justify-content: flex-start;
-          >.quote-author{
-            font-size:24px;
-            color:black;
+
+          >.quote-author {
+            font-size: 24px;
+            color: black;
           }
-          >.quote-genre{
-            font-size:13px;
-            color:gray;
+
+          >.quote-genre {
+            font-size: 13px;
+            color: gray;
           }
         }
-        >.btn-icon{
+
+        >.btn-icon {
           display: inline-flex;
           align-items: center;
           color: white;
 
         }
-        &:hover{
+
+        &:hover {
           cursor: pointer;
           background-color: black;
-          >.desc-group >.quote-author{
-            color:white;
+
+          >.desc-group>.quote-author {
+            color: white;
           }
-          >.btn-group{
+
+          >.btn-group {
             display: inline-flex;
           }
         }
