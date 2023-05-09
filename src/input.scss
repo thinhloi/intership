@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
+$text-dark:#333333;
+$text-light:#ffffff;
+$danger:#D32F2F;
+$gray:#828282;
+$blue:#2962FF;
 
 $input-size: (
     sm: 10px 12px,
@@ -17,21 +22,22 @@ $input-size: (
 
 input,
 textarea {
+    
     border-radius: 8px;
     padding: map-get($input-size, md);
-    color: #333333;
-    border: 1px solid #828282;
+    color: $text-dark;
+    border: 1px solid $gray;
 
     &:hover {
-        border: 1px solid #333333;
+        border: 1px solid $text-dark;
     }
 
     &:focus {
-        border: 1px solid #2962FF;
+        border: 1px solid $blue;
         outline: none !important;
 
         ~label {
-            color: #2962FF;
+            color: $blue;
         }
     }
 
@@ -48,47 +54,47 @@ textarea {
 
     input,
     textarea {
-        border: 1px solid #D32F2F;
+        border: 1px solid $danger;
         border-radius: 8px;
         outline: none !important;
     }
 
     >.input-area>label {
-        color: #D32F2F ;
+        color: $danger ;
     }
 
     >.input-area>.helper-text {
-        color: #D32F2F ;
+        color: $danger ;
     }
 
     &:hover {
         input {
-            border: 1px solid #333333;
+            border: 1px solid $text-dark;
             border-radius: 8px;
             outline: none !important;
         }
 
         >.input-area>label {
-            color: #333333 ;
+            color: $text-dark ;
         }
 
         >.input-area>.helper-text {
-            color: #333333 ;
+            color: $text-dark ;
         }
     }
 
     &:focus {
         input {
-            border: 1px solid #D32F2F !important;
+            border: 1px solid $danger !important;
             border-radius: 8px;
             outline: none !important;
         }
         >.input-area>label {
-            color: #D32F2F !important ;
+            color: $danger !important ;
         }
 
         >.input-area>.helper-text {
-            color: #D32F2F !important;
+            color: $danger !important;
         }
     }
 }
@@ -97,7 +103,7 @@ textarea {
     > :only-child {
         height: 6rem;
         width: 1rem;
-        color: #828282;
+        color: $gray;
     }
 }
 
@@ -117,7 +123,7 @@ textarea {
     >label {
         font-size: 12px;
         line-height: 17px;
-        color: #333333;
+        color: $text-dark;
         padding-bottom: 4px;
     }
 
@@ -125,7 +131,7 @@ textarea {
         padding-top: 4px;
         font-size: 10px;
         line-height: 14px;
-        color: #828282;
+        color: $gray;
     }
 
     .input-area {

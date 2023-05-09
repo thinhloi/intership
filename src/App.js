@@ -114,7 +114,7 @@ function App() {
           helperText='FullWidth'
           value='Text' />
       
-      <Input multiline_row="4"
+      <Input multiline_row
         label='Label'
         placeholder='placeholder' />
     </div>
