@@ -33,11 +33,11 @@ export const Todo = ({ id, label, checked, onClick, onChange, ...prop }) => {
                 id={id}
                 {...prop}
             />
-            <Button
+            {prop.showDeleteIcon && <Button
                 className='btn-icon-danger'
                 onClick={onClick}
                 text={<MdDeleteOutline />}
-            />
+            />}
         </div>
     );
 };

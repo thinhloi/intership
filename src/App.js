@@ -4,7 +4,7 @@ import './input.scss'
 import { StyledInputText, Todo } from './components/Input'
 import { StyledButton as Button } from './components/Buttons'
 import { useState } from 'react';
-import { Tabs } from './components/TodoApp';
+import { Tabs } from './components/Tabs';
 import { MdDeleteOutline } from "react-icons/md";
 import { v4 } from 'uuid';
 
@@ -40,7 +40,7 @@ function App() {
       name: storageTodo[index].name,
       isChecked: !storageTodo[index].isChecked,
     };
-    localStorage.setItem('tasks', JSON.stringify(storageTodo));
+    localStorage.setItem('todos', JSON.stringify(storageTodo));
     setTodos(newTodo);
   }
 
@@ -53,13 +53,9 @@ function App() {
   }
 
   const oldTodo = [...todos];
-  const filtered = oldTodo.filter((obj) => {
-      return obj.isChecked === false;
-  });
+  const filtered = oldTodo.filter((obj) => !obj.isChecked)
 
-  const found = oldTodo.find((obj) => {
-      return obj.isChecked === true;
-  });
+  const found = oldTodo.find((obj) => obj.isChecked)
 
   const handleDeleteTodo = () => {
       const newTodo =[...filtered];
@@ -136,6 +132,7 @@ function App() {
               if (todos[key].isChecked){
                 return (
                   <Todo
+                    showDeleteIcon ={true}
                     key={todos[key].id}
                     id={todos[key].id}
                     label={todos[key].name}
