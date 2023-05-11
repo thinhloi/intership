@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     if (quotes.length === 0 && !author)
-      fetch('https://quote-garden.onrender.com/api/v3/quotes/random')
+      fetch('https://quote-garden.onrender.com/api/v3/quotes/random',{mode:'no-cors'})
       .then((res) => res.json())
       .then((json) => {
         setQuotes(json.data)
