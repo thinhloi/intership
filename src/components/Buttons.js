@@ -26,11 +26,15 @@ const Button = (props) => {
     className='',
     ...btnProps
   } = props;
-
+  const btnVariant = variant ? `btn-${variant}` : '';
+  const btnSize = size ? `btn-${size}` : '';
+  const btnColor = color ? `btn-${color}` : '';
+  const btnDisabled = disabled ? "btn-disabled" : '';
+  const btnDisableShadow =  disableShadow ? "btn-disableShadow" : '';
   return (
-    <button className = {`btn btn${variant} btn-${size} btn-${color} ${disabled ? "btn-disabled" : ''} 
-    ${disableShadow ? "btn-disableShadow" : ''} ${className}`} {...btnProps}
+    <button className ={`${btnVariant} ${btnSize} ${btnColor} ${btnDisabled} ${btnDisableShadow} ${className}`} {...btnProps}
       disable = {disabled}
+      disableShadow= {disableShadow}
       color={color}
       size={size}>
         {startIcon && (<startIcon className ='start-icon'>{startIcon}</startIcon>)}
