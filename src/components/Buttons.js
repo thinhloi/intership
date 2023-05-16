@@ -1,6 +1,6 @@
 
 
-export const Button = ({ text, onClick, endIcon, ...props }) => {
+export const Button = ({ text, onClick, endIcon,...props}) => {
   return (
     <button
       type='button'
@@ -8,7 +8,7 @@ export const Button = ({ text, onClick, endIcon, ...props }) => {
       {...props}
     >
       {text}
-      <span className='endIcon'>{endIcon}</span>
+      {endIcon && <span className='end-icon'>{endIcon}</span>}
     </button>
   )
 }

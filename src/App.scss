@@ -1,347 +1,409 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+$gray-1: #e7e7eb;
+$gray-2: #a09fb1;
+$gray-3: #88869d;
+$gray-4: #616475;
+$gray-5: #6e707a;
+
+$blue-1: #1e213a;
+$blue-2: #100e1d;
+$blue-3: #110e3c;
+$blue-4: #3c47e9;
+
+$yellow-1: #ffec65;
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
 }
 
-.header {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 5%;
-
+.img-deco {
+    position: absolute;
+    opacity: 5%;
 }
 
-input[type='text'] {
-  border-radius: 8px;
-  padding: 20px 70px;
-  border: 1px solid #455a64;
-  color: #333333;
-  text-align: left;
-  justify-content: center;
-  padding-left: 20px;
-
-  &:hover {
-    border: 1px solid #333333;
-  }
-
-  &:focus {
-    outline: none !important;
-    border: 1px solid #BDBDBD;
-  }
-
-  &::placeholder {
-    color: #828282;
-  }
+.img-deco-1 {
+    left: -89px;
+    top: 103px;
 }
 
-.default {
-  color: #333333;
-
-  &:focus {
-    color: #2962FF;
-  }
+.img-deco-2 {
+    left: 336px;
+    top: 116px;
 }
 
-.btn {
-  $text-light: #ffffff;
-  $text-dark: #3f3f3f;
+.img-deco-3 {
+    left: -111px;
+    top: 266px;
+}
 
-  $box-shadow: 0px 2px 3px rgba(51, 51, 51, 0.2);
+.img-deco-4 {
+    left: 323px;
+    top: 370px;
+}
 
-  $disable-bg-color: #E0E0E0;
-  $disable-text-color: #9E9E9E;
-
-  &-icon-danger {
-    background-color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.btn-icon {
+    color: $gray-1;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: 1px solid transparent;
-    font-size: 20px;
-    padding: 0px !important;
-    color: #bdbdbd;
-
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px;
+    > :only-child {
+        height: 25px;
+        width: 25px;
+    }
     &:hover {
-      color: red;
+        cursor: pointer;
     }
-  }
+}
 
-
-
-  @mixin disabled() {
-    cursor: not-allowed;
-  }
-
-  &-default {
-    background-color: #E0E0E0;
-    border-radius: 6px;
-    border: 0px;
-
-    &:hover,
-    &:focus {
-      background: #AEAEAE;
-      border: 0px;
-      border-radius: 6px;
-    }
-  }
-
-  &-outline {
-    background-color: white;
-    box-shadow: 0px 0px 0px rgba(51, 51, 51, 0.2);
-    color: #3D5AFE;
-    border: 1px solid #3D5AFE;
-    border-radius: 6px;
-
-    &:hover,
-    &:focus {
-      background: rgba(41, 98, 255, 0.1);
-      border: 1px solid #3D5AFE;
-    }
-  }
-
-  &-text {
-    box-shadow: 0px 0px 0px rgba(51, 51, 51, 0.2);
-    background: transparent;
-    color: #333333;
-    border: none;
-    align-items: flex;
-    vertical-align: middle;
-    justify-content: center;
-
-    &:hover,
-    &:focus {
-      color: #3D5AFE;
-      border-radius: 6px;
-    }
-  }
-
-  &-disableShadow {
-    color: #ffffff;
-    background: #3D5AFE;
-    box-shadow: 0px 0px 0px;
-    border-radius: 6px;
-    border: none;
-  }
-
-  &-disabled {
-    @include disabled();
-    border: none;
-    background-color: $disable-bg-color;
-    color: $disable-text-color;
-  }
-
-  &-iconButton {
-    background: #3D5AFE;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    display: flex;
-    justify-content: center;
-    vertical-align: middle;
-    text-align: center;
-    padding: 10px 20px;
-  }
-
-
-  &-sizeButton {
-    background: #3D5AFE;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    vertical-align: middle;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-  }
-
-  &-sm {
-    padding: 1.1rem;
-    height: 30px;
-    justify-content: center;
-    vertical-align: middle;
-    display: flex;
-  }
-
-  &-md {
-    padding: 1.4rem;
-    height: 37px;
-    justify-content: center;
-    vertical-align: middle;
-    display: flex;
-  }
-
-  &-lg {
-    padding: 2rem 40px;
-    height: 45px;
-    justify-content: center;
-    vertical-align: middle;
-    display: flex;
-  }
-
-  &-primary {
-    background-color: #2F80ED;
-    box-shadow: 0px 2px 3px rgba(127, 177, 243, 0.4);
-    border-radius: 12px;
-    align-items: center;
+.btn-primary {
     border: 1px solid transparent;
-    display: flex;
-    color: $text-light;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 500;
-    user-select: none;
-    cursor: pointer;
-    vertical-align: middle;
-
-    &:hover,
-    &:focus {
-      background: #0039CB;
-      border: 1px solid transparent;
-      border-radius: 12px;
+    background-color: $blue-4;
+    color: $gray-1;
+    padding: 14px 15px;
+    &:hover {
+        cursor: pointer;
     }
-  }
-
-  &-secondary {
-    background-color: #455a64;
-    border-radius: 6px;
-    border: 0px;
-    color: $text-light;
-
-    &:hover,
-    &:focus {
-      background: #1C313A;
-      border: 0px;
-      border-radius: 6px;
-    }
-  }
-
-
-  &-danger {
-    background-color: #EB5757;
-    border-radius: 4px;
-    border: 0px;
-    color: $text-light;
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
-    text-align: center;
-    padding-left: 0px;
-
-
-    &:hover,
-    &:focus {
-      background: #EB5757;
-      border: 0px;
-      border-radius: 4px;
-    }
-  }
 }
 
-.endIcon {
-  padding-right: 0px;
-  display: flex-end;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
+.btn-text-icon {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: $gray-1;
+    &:hover {
+        cursor: pointer;
+        color: red;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
 
-  > :only-child {
-    width: 1.5rem;
+.btn-text {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: $gray-1;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 23px 12px;
+    > .end-icon {
+        display: none;
+    }
+    &:hover {
+        cursor: pointer;
+        border: 1px solid $gray-4;
+        > .end-icon {
+            display: inline-block;
+        }
+    }
+}
+
+.end-icon > :only-child {
+    width: 1rem;
     height: 1rem;
-  }
 }
 
-.quote-card {
-  width: 50%;
-  margin: 0px 20%;
-  padding-top: 48px;
+.end-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+}
 
-  >.author-header {
-    font-size: 30px;
-    font-weight: 700;
-    color: black;
-    padding-bottom: 10%;
-  }
-
-  &-body {
-    >.quote-list {
-      display: inline-flex;
-      flex-direction: row;
-      width: 100%;
-
-      >.quote-content {
-        font-size: 30px;
-        font-weight: 500;
-        margin-bottom: 100px;
-        padding: 0px 30px;
-        height: auto;
-        box-shadow: -5px 0 0 orange;
-
-        &::before {
-          content: open-quote;
+.input-group {
+    display: inline-flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    > .start-icon {
+        display: none;
+        color: $gray-4;
+    }
+    > input {
+        border: 1px solid transparent;
+        padding: 14px 18px;
+        background-color: $gray-5;
+        color: $gray-1;
+        width: auto;
+        height: 100%;
+        font-size: 1rem;
+        &::placeholder {
+            color: $gray-1;
         }
-
-        &::after {
-          content: close-quote;
+        &:focus {
+          
+            color: $gray-1;
+            padding-left: 55px !important;
+            width: 100%;
+            padding-right: 12px;
+            &::placeholder {
+                color: $gray-4;
+            }
+            background-color: transparent;
+            border: 1px solid $gray-1;
+            outline: none !important;
+            ~.start-icon {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              position: absolute;
+              padding-left: 15px;
+          }
+            
         }
-      }
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    .sidebar {
+        background-color: $blue-1;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-end;
+        flex: 1 1 auto;
+        padding: 0px 50px;
+        max-width: 600px;
+        min-height: 672px;
+        padding-top: 50px;
+        > .sidebar-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 42px 0px;
+        }
+        > .sidebar-content {
+            width: 100%;
+            > .sidebar-img {
+                margin-bottom: 50px;
+                margin-top: 50px;
+                height: 200px;
+                display: flex;
+                justify-content: center;
+            }
+            > .sidebar-info {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                width: 100%;
+                > .info-temp {
+                    font-size: 144px;
+                    color: $gray-1;
+                    margin-bottom: 87px;
+                    &::after {
+                        content: attr(units);
+                        font-size: 48px;
+                        font-weight: 100;
+                        color: $gray-2;
+                    }
+                }
+                > .info-text {
+                    font-size: 36px;
+                    color: $gray-2;
+                    margin-bottom: 70px;
+                }
+                > .info-date {
+                    font-size: 18px;
+                    margin-bottom: 32px;
+                    color: $gray-3;
+                }
+                > .info-location {
+                    font-size: 18px;
+                    color: $gray-3;
+                    margin-bottom: 50px;
+                    display: inline-flex;
+                    align-items: center;
+                }
+            }
+        }
+        > .sidebar-close {
+            position: absolute;
+            display: flex;
+            justify-content: flex-end;
+            padding: 19px 0px;
+        }
+        > .sidebar-search {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding-bottom: 58px;
+        }
+        > .search-content {
+            width: 100%;
+        }
     }
 
-    >.btn-quote {
-      width: 100%;
-      border: none;
-      background-color: transparent;
-
-      >.btn-group {
+    > .weather-container {
+        background-color: $blue-2;
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        display: inline-flex;
-        flex-direction: row;
-        padding: 30px 20px;
-
-        >.desc-group {
-          width: 100%;
-          display: inline-flex;
-          align-items: flex-start;
-          flex-direction: column;
-          justify-content: flex-start;
-
-          >.quote-author {
-            font-size: 24px;
-            color: black;
-          }
-
-          >.quote-genre {
-            font-size: 13px;
-            color: gray;
-          }
+        flex:8 1;
+        padding-bottom: 155px;
+        > .temp-group {
+            display: flex;
+            justify-content: flex-end;
+            padding: 42px 100px;
+            gap: 12px;
+            > .btn-active {
+                color: $blue-3;
+                background-color: $gray-1;
+            }
         }
-
-        >.btn-icon {
-          display: inline-flex;
-          align-items: center;
-          color: white;
-
+        > .week-weather {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 0px 100px;
+            padding-bottom: 72px;
+            > .weather-card {
+                height: 177px;
+                flex: 0 2 120px;
+                background-color: $blue-1;
+                display: inline-grid;
+                justify-items: center;
+                padding: 18px 0px;
+                > .weather-card-date {
+                    color: $gray-1;
+                }
+                > .weather-card-img {
+                    max-height: 62px;
+                }
+                > .weather-card-temp {
+                    > span:nth-child(1) {
+                        color: $gray-1;
+                        margin-right: 16px;
+                        &::after {
+                            content: attr(units);
+                        }
+                    }
+                    > span:nth-child(2) {
+                        color: $gray-2;
+                        &::after {
+                            content: attr(units);
+                        }
+                    }
+                }
+            }
         }
-
-        &:hover {
-          cursor: pointer;
-          background-color: black;
-
-          >.desc-group>.quote-author {
-            color: white;
-          }
-
-          >.btn-group {
-            display: inline-flex;
-          }
+        > .weather-info {
+            display: flex;
+            flex-direction: column;
+            padding: 0px 100px;
+            > .info-title {
+                font-size: 24px;
+                font-weight: 700;
+                padding-bottom: 32px;
+                display: flex;
+                justify-items: flex-end;
+                color: $gray-1;
+            }
+            > .info-group {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 32px;
+                color: $gray-1;
+                > .weather-info-card {
+                    flex: 0 1 328px;
+                    display: inline-grid;
+                    justify-items: center;
+                    background-color: $blue-1;
+                    padding: 22px 0 37px 0;
+                    > p:nth-child(1) {
+                        margin-bottom: 6px;
+                    }
+                    > p:nth-child(2) {
+                        font-size: 64px;
+                        font-weight: 700;
+                        &::after {
+                            content: attr(data-desc);
+                            font-size: 36px;
+                            font-weight: 500;
+                            margin-left: 1rem;
+                        }
+                    }
+                    > .info-card-footer {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 5.71px;
+                        margin-top: 18px;
+                        > .humidity-progress {
+                            display: inline-flex;
+                            flex-direction: column;
+                            > .humidity-number {
+                                display: inline-flex;
+                                color: $gray-1;
+                                font-size: 12px;
+                                font-weight: 700;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding-bottom: 2px;
+                            }
+                            > .humidity-percen {
+                                display: inline-flex;
+                                color: $gray-1;
+                                font-size: 12px;
+                                font-weight: 700;
+                                justify-content: flex-end;
+                                align-items: center;
+                                padding-top: 2px;
+                            }
+                            > progress {
+                                height: 8px;
+                            }
+                            ::-webkit-progress-bar {
+                                background-color: $gray-1;
+                                border-radius: 80px;
+                            }
+                            ::-webkit-progress-value {
+                                border-radius: 80px;
+                                background-color: $yellow-1;
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
     }
-  }
+}
+
+@media screen and (max-width: 415px) {
+    .sidebar {
+        padding: 18px 11px !important;
+    }
+    .sidebar-header {
+        padding: 0px !important;
+    }
+    .week-weather {
+        padding: 52px 55px !important;
+        justify-content: space-between !important;
+    }
+    .weather-info {
+        padding: 0px 23px !important;
+        .info-group {
+            justify-content: center !important;
+        }
+    }
+    .temp-group {
+        display: none !important;
+    }
 }
