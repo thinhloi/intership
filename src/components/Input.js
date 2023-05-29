@@ -1,15 +1,53 @@
-import React from 'react'
-
-
-export const Input = ({ action,index, startIcon,onChange, ...props})=> {
-    return (
-        <div className='input-group'>
-        <input
-                type='text'
-                onChange = {onChange}
-                {...props}
-        />
-        {startIcon && <span className='start-icon'>{startIcon}</span>}
-        </div>
+export const TextInputGroup = ({
+        placeholder,
+        startIcon,
+        onChange,
+        onClick,
+    }) => {
+        return (
+            <div className='button-in'>
+                <div className='start-icon'>{startIcon}</div>
+                <input
+                    placeholder={placeholder}
+                    type='text'
+                    onChange={onChange}
+                />
+                <button onClick={onClick}>Search</button>
+            </div>
         );
-};
+    };
+    export const TextInput = ({ label, placeholder, startIcon, onChange }) => {
+        return (
+            <div className='input-group'>
+                <label>{label}</label>
+                <div className='input'>
+                    <div className='start-icon'>{startIcon}</div>
+                    <input
+                        onChange={onChange}
+                        type='text'
+                        placeholder={placeholder}
+                    />
+                </div>
+            </div>
+        );
+    };
+    
+    export const CheckBox = ({ label }) => {
+        return (
+            <label className='form-input'>
+                <input type='checkbox' />
+                <span>{label}</span>
+            </label>
+        );
+    };
+    
+    export const Radio = ({ label,id }) => {
+        return (
+            <label className='form-input'>
+                <input 
+                type='radio'
+                id = {id} />
+                <span>{label}</span>
+            </label>
+        );
+    };
