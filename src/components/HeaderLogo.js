@@ -1,8 +1,15 @@
+import { Link } from 'react-router-dom';
+
 export const HeaderLogo = () => {
     return (
-        <p className="header">
-            <span>Github</span>
-            <span> Jobs</span>
-        </p>
-    )
-}
+        <Link to='/'>
+            <div className='logo'>
+                <p>CatWiki</p>
+                <img
+                    alt=''
+                    src='https://static.thenounproject.com/png/6725-200.png'
+                />
+            </div>
+        </Link>
+    );
+};

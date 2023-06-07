@@ -1,15 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
-import Home from './pages/Home';
-import { JobPage } from './pages/JobPage';
+import { Home } from './pages/Home';
+import { Info } from './pages/Info';
 
 function App() {
-    
     return (
         <Routes>
             <Route
-                path='job/:id'
-                element={<JobPage />}
+                path=':id'
+                element={<Info />}
             />
             <Route
                 path=''
